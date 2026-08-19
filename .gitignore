@@ -6,12 +6,13 @@
 # Swift Package Manager
 .build/
 .swiftpm/xcode/package.xcworkspace/xcuserdata/
-Package.resolved
 
 # Xcode user-specific data
 xcuserdata/
+*.xcworkspace/xcuserdata/
 *.xcuserstate
 DerivedData/
+Development/DerivedData/
 
 # Build products
 DevelopmentBuild/
