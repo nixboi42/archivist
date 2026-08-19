@@ -5,6 +5,7 @@
 
 # Swift Package Manager
 .build/
+.swiftpm/
 .swiftpm/xcode/package.xcworkspace/xcuserdata/
 
 # Xcode user-specific data

@@ -16,6 +16,10 @@ https://www.libarchive.org/
 Release:  
 https://github.com/libarchive/libarchive/releases/tag/v3.8.4
 
+Source archive SHA-256:
+
+`c7b847b57feacf5e182f4d14dd6cae545ac6843d55cb725f58e107cdf1c9ad73`
+
 ## Usage in Archivist
 
 Archivist statically incorporates libarchive as an archive backend.
@@ -56,6 +60,21 @@ The vendored static library and the corresponding build-output
 
 Archivist has no Homebrew runtime dependency for libarchive.
 
+The pinned build disables XML, crypto, LZ4, Zstandard, LZO, and
+external-program filters. Stable compression libraries supplied by macOS,
+including liblzma, remain system dependencies.
+
+The source archive and upstream checksum manifest are retained beside the
+artifact. `BuildHeaders/` contains the XZ Utils 5.8.3 public headers used to
+produce it, with the corresponding license in `XZ-LICENSE`. The checked-in
+headers avoid a build-time dependency on a local Homebrew installation.
+
+Rebuild from `Vendor/Libarchive` with:
+
+`./build-pinned.sh`
+
+The script verifies the source archive SHA-256 before compiling.
+
 ## Capability Policy
 
 Capabilities exposed by Archivist are based on the pinned and tested build,
@@ -71,7 +90,7 @@ License.
 
 The applicable upstream license is preserved in:
 
-`Vendor/Libarchive/LICENSE.txt`
+`Vendor/Libarchive/LICENSE`
 
 Binary distributions of Archivist incorporating libarchive must preserve
 the applicable license notices.
@@ -85,7 +104,7 @@ When updating libarchive:
 3. Review upstream licensing changes.
 4. Build the static library for the supported macOS architecture(s).
 5. Update the version and SHA-256 recorded here.
-6. Update `LICENSE.txt` if necessary.
+6. Update `LICENSE` and `XZ-LICENSE` if necessary.
 7. Run Archivist's backend, format, corruption, Unicode, large-file,
    cancellation, security, and integration tests.
 8. Enable new capabilities only after explicit verification.

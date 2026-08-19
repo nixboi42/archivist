@@ -1,0 +1,4 @@
+MD5(libarchive-3.8.4.tar.xz)= 355bb47a72fad8417eb745754005fdb9
+RIPEMD-160(libarchive-3.8.4.tar.xz)= f55a810a05fe20818078e6ad2f8f5cc3a6953cbc
+SHA1(libarchive-3.8.4.tar.xz)= 4d9e9b14071362908f20b097a9fcc84a33294cca
+SHA2-256(libarchive-3.8.4.tar.xz)= c7b847b57feacf5e182f4d14dd6cae545ac6843d55cb725f58e107cdf1c9ad73

@@ -1,0 +1,571 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0364C539A5D3D176E7C91791 /* FinderSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D4C1768C64443CA4EF822F /* FinderSync.framework */; };
+		809694880832060EC49439C1 /* ArchivistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1647FF63A4D69DC01849528C /* ArchivistApp.swift */; };
+		9B2B45ADF2E2837075D871B0 /* StartupAccessAudit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76471E46D809DFE96BAABE84 /* StartupAccessAudit.swift */; };
+		A4BFC9CC383DFF784C1D391E /* FinderIntegration in Frameworks */ = {isa = PBXBuildFile; productRef = CE4615DE3D4EABB36C86927A /* FinderIntegration */; };
+		C244A73607321768818BDE1D /* ArchiveUI in Frameworks */ = {isa = PBXBuildFile; productRef = EF50A728E1134AB75EF1D376 /* ArchiveUI */; };
+		C570960F23B0B38C30B5795F /* ArchivistFinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425EFB119ECCE485E3F35CAA /* ArchivistFinderSync.swift */; };
+		C7F18A7AB72D2E684A1A21D8 /* ProductionComposition in Frameworks */ = {isa = PBXBuildFile; productRef = 0E9B9B5E94904DB28EC2FF47 /* ProductionComposition */; };
+		E7122BA5268026596CB712A2 /* ArchivistFinderSync.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C0E851D4E40E8E76F9D7BE63 /* ArchivistFinderSync.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CAD306A3A2336084FB440F5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56F6D5930FDD2AC89E863266 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 101FB90D312F3D789E6EB8CE;
+			remoteInfo = ArchivistFinderSync;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		219C48E6ABFB866653CC6E1B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E7122BA5268026596CB712A2 /* ArchivistFinderSync.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08F6A31E4EEA8E79DE546A39 /* Archivist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Archivist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1647FF63A4D69DC01849528C /* ArchivistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivistApp.swift; sourceTree = "<group>"; };
+		32404E5651A3105869D90526 /* outputs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = outputs; path = ../..; sourceTree = SOURCE_ROOT; };
+		425EFB119ECCE485E3F35CAA /* ArchivistFinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivistFinderSync.swift; sourceTree = "<group>"; };
+		76471E46D809DFE96BAABE84 /* StartupAccessAudit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupAccessAudit.swift; sourceTree = "<group>"; };
+		C0E851D4E40E8E76F9D7BE63 /* ArchivistFinderSync.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ArchivistFinderSync.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C47258A488EB8523229AC320 /* ArchivistFinderSyncPersonalTeam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ArchivistFinderSyncPersonalTeam.entitlements; sourceTree = "<group>"; };
+		E3D4C1768C64443CA4EF822F /* FinderSync.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FinderSync.framework; path = System/Library/Frameworks/FinderSync.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16F20542A76EC909C1FD434D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4BFC9CC383DFF784C1D391E /* FinderIntegration in Frameworks */,
+				0364C539A5D3D176E7C91791 /* FinderSync.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5D76B167050CCC248F8348B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C244A73607321768818BDE1D /* ArchiveUI in Frameworks */,
+				C7F18A7AB72D2E684A1A21D8 /* ProductionComposition in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D0014363AD1902263702E70 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				32404E5651A3105869D90526 /* outputs */,
+				2BD0709F46C1B38D6FB13BCD /* App */,
+			);
+			name = Packages;
+			path = ../Packages;
+			sourceTree = "<group>";
+		};
+		2BD0709F46C1B38D6FB13BCD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E03A436C14E0D4D525DEECE8 /* Sources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3429D5DF8AF696A0268C53E0 /* Development */ = {
+			isa = PBXGroup;
+			children = (
+				8BFA8B4296472CFEF8EF21E9 /* FinderSync */,
+			);
+			name = Development;
+			path = .;
+			sourceTree = "<group>";
+		};
+		4F15821CC5D285D554C5A781 /* ArchivistApp */ = {
+			isa = PBXGroup;
+			children = (
+				1647FF63A4D69DC01849528C /* ArchivistApp.swift */,
+				76471E46D809DFE96BAABE84 /* StartupAccessAudit.swift */,
+			);
+			path = ArchivistApp;
+			sourceTree = "<group>";
+		};
+		73DA816B08CF8B72D8833E1E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				08F6A31E4EEA8E79DE546A39 /* Archivist.app */,
+				C0E851D4E40E8E76F9D7BE63 /* ArchivistFinderSync.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8BFA8B4296472CFEF8EF21E9 /* FinderSync */ = {
+			isa = PBXGroup;
+			children = (
+				425EFB119ECCE485E3F35CAA /* ArchivistFinderSync.swift */,
+				C47258A488EB8523229AC320 /* ArchivistFinderSyncPersonalTeam.entitlements */,
+			);
+			path = FinderSync;
+			sourceTree = "<group>";
+		};
+		9726844E9CE2A4902C9FFFA4 = {
+			isa = PBXGroup;
+			children = (
+				3429D5DF8AF696A0268C53E0 /* Development */,
+				0D0014363AD1902263702E70 /* Packages */,
+				E707E2FDA14AF295512C6DE8 /* Frameworks */,
+				73DA816B08CF8B72D8833E1E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E03A436C14E0D4D525DEECE8 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4F15821CC5D285D554C5A781 /* ArchivistApp */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		E707E2FDA14AF295512C6DE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3D4C1768C64443CA4EF822F /* FinderSync.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		101FB90D312F3D789E6EB8CE /* ArchivistFinderSync */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22E2DF919CED2E9B86D2150F /* Build configuration list for PBXNativeTarget "ArchivistFinderSync" */;
+			buildPhases = (
+				52322559CC6493227F6EF3A7 /* Sources */,
+				16F20542A76EC909C1FD434D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArchivistFinderSync;
+			packageProductDependencies = (
+				CE4615DE3D4EABB36C86927A /* FinderIntegration */,
+			);
+			productName = ArchivistFinderSync;
+			productReference = C0E851D4E40E8E76F9D7BE63 /* ArchivistFinderSync.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F18D050532DBAFB7D9229922 /* Archivist */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B13342A84755E44802A007CE /* Build configuration list for PBXNativeTarget "Archivist" */;
+			buildPhases = (
+				58850BDF5926397DAB0BBA07 /* Prevent development Finder transport in Release */,
+				D72B948E27126AB38D8EA6C3 /* Sources */,
+				A5D76B167050CCC248F8348B /* Frameworks */,
+				219C48E6ABFB866653CC6E1B /* Embed Foundation Extensions */,
+				19C1C8C3988D6F14F1D01467 /* Bundle and sign 7zz */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				969319EEEA647EA20ACD374C /* PBXTargetDependency */,
+			);
+			name = Archivist;
+			packageProductDependencies = (
+				EF50A728E1134AB75EF1D376 /* ArchiveUI */,
+				0E9B9B5E94904DB28EC2FF47 /* ProductionComposition */,
+			);
+			productName = Archivist;
+			productReference = 08F6A31E4EEA8E79DE546A39 /* Archivist.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		56F6D5930FDD2AC89E863266 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					101FB90D312F3D789E6EB8CE = {
+						DevelopmentTeam = J6UMA79JLS;
+						ProvisioningStyle = Automatic;
+					};
+					F18D050532DBAFB7D9229922 = {
+						DevelopmentTeam = J6UMA79JLS;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 568EEFACFFDA79E438D18F56 /* Build configuration list for PBXProject "ArchivistDevelopment" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9726844E9CE2A4902C9FFFA4;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CFDB4B5C3834089DD3664D89 /* XCLocalSwiftPackageReference ".." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 73DA816B08CF8B72D8833E1E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F18D050532DBAFB7D9229922 /* Archivist */,
+				101FB90D312F3D789E6EB8CE /* ArchivistFinderSync */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19C1C8C3988D6F14F1D01467 /* Bundle and sign 7zz */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle and sign 7zz";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -eu\nHELPER_DIR=\"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Helpers\"\nHELPER_PATH=\"${HELPER_DIR}/7zz\"\nmkdir -p \"${HELPER_DIR}\"\nditto \"${SRCROOT}/../../../work/7zip-26.02/7zz\" \"${HELPER_PATH}\"\nchmod 755 \"${HELPER_PATH}\"\nif [ -n \"${EXPANDED_CODE_SIGN_IDENTITY:-}\" ]; then\n  /usr/bin/codesign --force --sign \"${EXPANDED_CODE_SIGN_IDENTITY}\" --timestamp=none \"${HELPER_PATH}\"\nfi\n";
+		};
+		58850BDF5926397DAB0BBA07 /* Prevent development Finder transport in Release */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Prevent development Finder transport in Release";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" = \"Release\" ] && [ \"${ARCHIVIST_FINDER_HANDOFF_MODE}\" = \"personal-team-development\" ]; then\n  echo \"error: Personal Team Finder transport is forbidden in Release builds\"\n  exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52322559CC6493227F6EF3A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C570960F23B0B38C30B5795F /* ArchivistFinderSync.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D72B948E27126AB38D8EA6C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				809694880832060EC49439C1 /* ArchivistApp.swift in Sources */,
+				9B2B45ADF2E2837075D871B0 /* StartupAccessAudit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		969319EEEA647EA20ACD374C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 101FB90D312F3D789E6EB8CE /* ArchivistFinderSync */;
+			targetProxy = CAD306A3A2336084FB440F5D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0849E26F1B3778124BD14D72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/Archivist.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.keremgurevin.Archivist;
+				PRODUCT_NAME = Archivist;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		39FCBE4BFB20DAA715613B6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/Archivist.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.keremgurevin.Archivist;
+				PRODUCT_NAME = Archivist;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		990B8D0FD5EA9F7EC1156077 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FinderSync/ArchivistFinderSync.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FinderSync/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.keremgurevin.Archivist.FinderSync;
+				PRODUCT_NAME = ArchivistFinderSync;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9BFDDDB554391FD9A7FC46B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHIVIST_FINDER_HANDOFF_MODE = "app-group";
+				ARCHS = arm64;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = J6UMA79JLS;
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		C86591082A94B0F552633A48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FinderSync/ArchivistFinderSync.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FinderSync/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.keremgurevin.Archivist.FinderSync;
+				PRODUCT_NAME = ArchivistFinderSync;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		EEB3B50EA2C0F52820152A17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHIVIST_FINDER_HANDOFF_MODE = "app-group";
+				ARCHS = arm64;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = J6UMA79JLS;
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22E2DF919CED2E9B86D2150F /* Build configuration list for PBXNativeTarget "ArchivistFinderSync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C86591082A94B0F552633A48 /* Debug */,
+				990B8D0FD5EA9F7EC1156077 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		568EEFACFFDA79E438D18F56 /* Build configuration list for PBXProject "ArchivistDevelopment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEB3B50EA2C0F52820152A17 /* Debug */,
+				9BFDDDB554391FD9A7FC46B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B13342A84755E44802A007CE /* Build configuration list for PBXNativeTarget "Archivist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0849E26F1B3778124BD14D72 /* Debug */,
+				39FCBE4BFB20DAA715613B6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		CFDB4B5C3834089DD3664D89 /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0E9B9B5E94904DB28EC2FF47 /* ProductionComposition */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ProductionComposition;
+		};
+		CE4615DE3D4EABB36C86927A /* FinderIntegration */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FinderIntegration;
+		};
+		EF50A728E1134AB75EF1D376 /* ArchiveUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ArchiveUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 56F6D5930FDD2AC89E863266 /* Project object */;
+}

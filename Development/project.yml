@@ -1,0 +1,85 @@
+name: ArchivistDevelopment
+options:
+  bundleIdPrefix: com.keremgurevin
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+packages:
+  ArchivistPackage:
+    path: ..
+settings:
+  base:
+    ARCHS: arm64
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: J6UMA79JLS
+    ENABLE_HARDENED_RUNTIME: NO
+    SWIFT_VERSION: "6.0"
+    ARCHIVIST_FINDER_HANDOFF_MODE: app-group
+targets:
+  Archivist:
+    type: application
+    platform: macOS
+    sources:
+      - path: Packages/App/Sources/ArchivistApp
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.keremgurevin.Archivist
+        PRODUCT_NAME: Archivist
+        INFOPLIST_FILE: App/Info.plist
+        CODE_SIGN_ENTITLEMENTS: App/Archivist.entitlements
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+    dependencies:
+      - package: ArchivistPackage
+        product: ArchiveUI
+      - package: ArchivistPackage
+        product: ProductionComposition
+      - target: ArchivistFinderSync
+        embed: true
+        codeSign: true
+    preBuildScripts:
+      - name: Prevent development Finder transport in Release
+        basedOnDependencyAnalysis: false
+        script: |
+          if [ "${CONFIGURATION}" = "Release" ] && [ "${ARCHIVIST_FINDER_HANDOFF_MODE}" = "personal-team-development" ]; then
+            echo "error: Personal Team Finder transport is forbidden in Release builds"
+            exit 1
+          fi
+    postBuildScripts:
+      - name: Bundle and sign 7zz
+        basedOnDependencyAnalysis: false
+        script: |
+          set -eu
+          HELPER_DIR="${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Helpers"
+          HELPER_PATH="${HELPER_DIR}/7zz"
+          mkdir -p "${HELPER_DIR}"
+          ditto "${SRCROOT}/../../../work/7zip-26.02/7zz" "${HELPER_PATH}"
+          chmod 755 "${HELPER_PATH}"
+          if [ -n "${EXPANDED_CODE_SIGN_IDENTITY:-}" ]; then
+            /usr/bin/codesign --force --sign "${EXPANDED_CODE_SIGN_IDENTITY}" --timestamp=none "${HELPER_PATH}"
+          fi
+  ArchivistFinderSync:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: Development/FinderSync
+        excludes:
+          - Info.plist
+          - ArchivistFinderSync.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.keremgurevin.Archivist.FinderSync
+        PRODUCT_NAME: ArchivistFinderSync
+        INFOPLIST_FILE: FinderSync/Info.plist
+        CODE_SIGN_ENTITLEMENTS: FinderSync/ArchivistFinderSync.entitlements
+        SKIP_INSTALL: YES
+    dependencies:
+      - package: ArchivistPackage
+        product: FinderIntegration
+      - sdk: FinderSync.framework
+schemes:
+  Archivist:
+    build:
+      targets:
+        Archivist: all
+    run:
+      config: Debug
