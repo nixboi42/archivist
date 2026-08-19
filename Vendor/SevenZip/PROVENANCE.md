@@ -53,7 +53,7 @@ verified Archivist development build.
 
 The licensing information accompanying the bundled version is preserved in:
 
-`Vendor/SevenZip/LICENSE.txt`
+`Vendor/SevenZip/LICENSE`
 
 Binary distributions of Archivist containing `7zz` must reproduce the
 applicable 7-Zip licensing information.
@@ -66,5 +66,5 @@ When updating 7-Zip:
 2. Verify the downloaded artifact.
 3. Replace the bundled executable.
 4. Update the version and SHA-256 recorded here.
-5. Update `LICENSE.txt` if the upstream licensing information changed.
+5. Update `LICENSE` if the upstream licensing information changed.
 6. Run Archivist's backend, PTY/password, security, and integration tests.

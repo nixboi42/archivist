@@ -16,7 +16,7 @@ backend.
 - Website: https://www.7-zip.org/
 
 7-Zip and its components are distributed under their respective upstream
-licenses. See [Vendor/SevenZip/LICENSE.txt](Vendor/SevenZip/LICENSE.txt) for
+licenses. See [Vendor/SevenZip/LICENSE](Vendor/SevenZip/LICENSE) for
 the licensing information distributed with the version of 7-Zip used by
 Archivist.
 
@@ -32,10 +32,16 @@ Archivist incorporates libarchive as an archive backend.
 - Website: https://www.libarchive.org/
 
 libarchive is distributed under its upstream license. See
-[Vendor/Libarchive/LICENSE.txt](Vendor/Libarchive/LICENSE.txt).
+[Vendor/Libarchive/LICENSE](Vendor/Libarchive/LICENSE).
 
 Additional provenance and version information is available in
 [Vendor/Libarchive/PROVENANCE.md](Vendor/Libarchive/PROVENANCE.md).
+
+## XZ Utils headers
+
+Archivist distributes a small set of XZ Utils headers with its pinned
+libarchive build inputs. They are covered by the upstream 0BSD license; see
+[Vendor/Libarchive/XZ-LICENSE](Vendor/Libarchive/XZ-LICENSE).
 
 ## Apple System Frameworks and Tools
 

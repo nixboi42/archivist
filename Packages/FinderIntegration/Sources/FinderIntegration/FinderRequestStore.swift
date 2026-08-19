@@ -2,7 +2,7 @@ import Foundation
 import Darwin
 
 public struct FinderRequestStore: Sendable {
-    public static let appGroupIdentifier = "group.J6UMA79JLS.com.archivist.shared"
+    public static let appGroupIdentifierInfoKey = "ArchivistAppGroupIdentifier"
     public static let activationScheme = "archivist"
     public let rootURL: URL
     public let maximumAge: TimeInterval
@@ -12,8 +12,19 @@ public struct FinderRequestStore: Sendable {
         self.rootURL = rootURL.standardizedFileURL; self.maximumAge = maximumAge; self.maximumURLCount = maximumURLCount
     }
 
+    /// The App Group is supplied by the containing app or extension's signed Info.plist.
+    /// Personal Team development builds deliberately leave this unset and use the bounded
+    /// development transport instead.
+    public static var appGroupIdentifier: String {
+        guard let identifier = Bundle.main.object(forInfoDictionaryKey: appGroupIdentifierInfoKey) as? String else { return "" }
+        let trimmed = identifier.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.hasPrefix("$(") ? "" : trimmed
+    }
+
     public static func appGroupStore(fileManager: FileManager = .default) throws -> FinderRequestStore {
-        guard let container = fileManager.containerURL(forSecurityApplicationGroupIdentifier: appGroupIdentifier) else {
+        let identifier = appGroupIdentifier
+        guard !identifier.isEmpty,
+              let container = fileManager.containerURL(forSecurityApplicationGroupIdentifier: identifier) else {
             throw FinderRequestError.invalidStorageRoot
         }
         return .init(rootURL: container.appendingPathComponent("FinderRequests", isDirectory: true))

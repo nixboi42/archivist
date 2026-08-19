@@ -8,6 +8,7 @@
 <key>CFBundleShortVersionString</key><string>0.1</string>
 <key>CFBundleVersion</key><string>1</string>
 <key>ArchivistFinderTransport</key><string>$(ARCHIVIST_FINDER_HANDOFF_MODE)</string>
+<key>ArchivistAppGroupIdentifier</key><string>$(ARCHIVIST_APP_GROUP_IDENTIFIER)</string>
 <key>NSExtension</key><dict>
   <key>NSExtensionPointIdentifier</key><string>com.apple.FinderSync</string>
   <key>NSExtensionPrincipalClass</key><string>ArchivistFinderSync</string>

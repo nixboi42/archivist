@@ -44,8 +44,8 @@
 /* Begin PBXFileReference section */
 		08F6A31E4EEA8E79DE546A39 /* Archivist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Archivist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1647FF63A4D69DC01849528C /* ArchivistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivistApp.swift; sourceTree = "<group>"; };
-		32404E5651A3105869D90526 /* outputs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = outputs; path = ../..; sourceTree = SOURCE_ROOT; };
 		425EFB119ECCE485E3F35CAA /* ArchivistFinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivistFinderSync.swift; sourceTree = "<group>"; };
+		70AA7FA08418CBF58D6359FD /* tmp */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tmp; path = ../..; sourceTree = SOURCE_ROOT; };
 		76471E46D809DFE96BAABE84 /* StartupAccessAudit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupAccessAudit.swift; sourceTree = "<group>"; };
 		C0E851D4E40E8E76F9D7BE63 /* ArchivistFinderSync.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ArchivistFinderSync.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47258A488EB8523229AC320 /* ArchivistFinderSyncPersonalTeam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ArchivistFinderSyncPersonalTeam.entitlements; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		0D0014363AD1902263702E70 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				32404E5651A3105869D90526 /* outputs */,
+				70AA7FA08418CBF58D6359FD /* tmp */,
 				2BD0709F46C1B38D6FB13BCD /* App */,
 			);
 			name = Packages;
@@ -210,11 +210,9 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					101FB90D312F3D789E6EB8CE = {
-						DevelopmentTeam = J6UMA79JLS;
 						ProvisioningStyle = Automatic;
 					};
 					F18D050532DBAFB7D9229922 = {
-						DevelopmentTeam = J6UMA79JLS;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -260,7 +258,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -eu\nHELPER_DIR=\"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Helpers\"\nHELPER_PATH=\"${HELPER_DIR}/7zz\"\nmkdir -p \"${HELPER_DIR}\"\nditto \"${SRCROOT}/../../../work/7zip-26.02/7zz\" \"${HELPER_PATH}\"\nchmod 755 \"${HELPER_PATH}\"\nif [ -n \"${EXPANDED_CODE_SIGN_IDENTITY:-}\" ]; then\n  /usr/bin/codesign --force --sign \"${EXPANDED_CODE_SIGN_IDENTITY}\" --timestamp=none \"${HELPER_PATH}\"\nfi\n";
+			shellScript = "set -eu\nif [ -z \"${ARCHIVIST_7ZZ_PATH:-}\" ]; then\n  echo \"error: ARCHIVIST_7ZZ_PATH must point to the pinned 7-Zip 26.02 7zz executable\"\n  exit 1\nfi\nif [ ! -f \"/Applications/Archivist.app/Contents/Helpers/7zz\" ] || [ ! -x \"/Applications/Archivist.app/Contents/Helpers/7zz\" ]; then\n  echo \"error: ARCHIVIST_7ZZ_PATH is not an executable file: /Applications/Archivist.app/Contents/Helpers/7zz\"\n  exit 1\nfi\nEXPECTED_7ZZ_SHA256=\"ecf1725c92260f5565d3c549a835407c6be7b8baf0d0dcc3e472599f81a4897a\"\nACTUAL_7ZZ_SHA256=\"$(shasum -a 256 \"/Applications/Archivist.app/Contents/Helpers/7zz\" | awk '{print $1}')\"\nif [ \"${ACTUAL_7ZZ_SHA256}\" != \"${EXPECTED_7ZZ_SHA256}\" ]; then\n  echo \"error: ARCHIVIST_7ZZ_PATH does not match the pinned 7-Zip 26.02 checksum\"\n  exit 1\nfi\nHELPER_DIR=\"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Helpers\"\nHELPER_PATH=\"${HELPER_DIR}/7zz\"\nmkdir -p \"${HELPER_DIR}\"\nditto \"/Applications/Archivist.app/Contents/Helpers/7zz\" \"${HELPER_PATH}\"\nchmod 755 \"${HELPER_PATH}\"\nif [ -n \"${EXPANDED_CODE_SIGN_IDENTITY:-}\" ]; then\n  /usr/bin/codesign --force --sign \"${EXPANDED_CODE_SIGN_IDENTITY}\" --timestamp=none \"${HELPER_PATH}\"\nfi\n";
 		};
 		58850BDF5926397DAB0BBA07 /* Prevent development Finder transport in Release */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -404,7 +402,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = J6UMA79JLS;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -483,7 +480,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = J6UMA79JLS;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;

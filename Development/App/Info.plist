@@ -13,4 +13,5 @@
 <key>LSApplicationCategoryType</key><string>public.app-category.utilities</string>
 <key>NSHighResolutionCapable</key><true/>
 <key>ArchivistFinderTransport</key><string>$(ARCHIVIST_FINDER_HANDOFF_MODE)</string>
+<key>ArchivistAppGroupIdentifier</key><string>$(ARCHIVIST_APP_GROUP_IDENTIFIER)</string>
 </dict></plist>

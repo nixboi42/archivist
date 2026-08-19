@@ -11,7 +11,6 @@ settings:
   base:
     ARCHS: arm64
     CODE_SIGN_STYLE: Automatic
-    DEVELOPMENT_TEAM: J6UMA79JLS
     ENABLE_HARDENED_RUNTIME: NO
     SWIFT_VERSION: "6.0"
     ARCHIVIST_FINDER_HANDOFF_MODE: app-group
@@ -49,10 +48,24 @@ targets:
         basedOnDependencyAnalysis: false
         script: |
           set -eu
+          if [ -z "${ARCHIVIST_7ZZ_PATH:-}" ]; then
+            echo "error: ARCHIVIST_7ZZ_PATH must point to the pinned 7-Zip 26.02 7zz executable"
+            exit 1
+          fi
+          if [ ! -f "${ARCHIVIST_7ZZ_PATH}" ] || [ ! -x "${ARCHIVIST_7ZZ_PATH}" ]; then
+            echo "error: ARCHIVIST_7ZZ_PATH is not an executable file: ${ARCHIVIST_7ZZ_PATH}"
+            exit 1
+          fi
+          EXPECTED_7ZZ_SHA256="ecf1725c92260f5565d3c549a835407c6be7b8baf0d0dcc3e472599f81a4897a"
+          ACTUAL_7ZZ_SHA256="$(shasum -a 256 "${ARCHIVIST_7ZZ_PATH}" | awk '{print $1}')"
+          if [ "${ACTUAL_7ZZ_SHA256}" != "${EXPECTED_7ZZ_SHA256}" ]; then
+            echo "error: ARCHIVIST_7ZZ_PATH does not match the pinned 7-Zip 26.02 checksum"
+            exit 1
+          fi
           HELPER_DIR="${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Helpers"
           HELPER_PATH="${HELPER_DIR}/7zz"
           mkdir -p "${HELPER_DIR}"
-          ditto "${SRCROOT}/../../../work/7zip-26.02/7zz" "${HELPER_PATH}"
+          ditto "${ARCHIVIST_7ZZ_PATH}" "${HELPER_PATH}"
           chmod 755 "${HELPER_PATH}"
           if [ -n "${EXPANDED_CODE_SIGN_IDENTITY:-}" ]; then
             /usr/bin/codesign --force --sign "${EXPANDED_CODE_SIGN_IDENTITY}" --timestamp=none "${HELPER_PATH}"
