@@ -8,7 +8,7 @@
 
 26.02
 
-## Upstream Project
+## Upstream
 
 7-Zip  
 https://www.7-zip.org/
@@ -18,70 +18,53 @@ Copyright © Igor Pavlov and contributors.
 ## Usage in Archivist
 
 Archivist bundles the macOS `7zz` executable and invokes it as a managed
-subprocess for archive operations supported by the 7-Zip backend.
+subprocess for supported archive operations.
 
-Archivist does not execute archive commands through a shell.
+The bundled executable is used primarily for 7z and ZIP-family operations,
+as well as supported extraction operations for formats such as RAR, CAB,
+and ARJ.
 
-The bundled executable is used for formats and operations assigned to the
-7-Zip backend by Archivist's authoritative capability policy.
+Archivist executes `7zz` directly without a shell.
 
-## Password Transport
-
-For password-protected operations, Archivist communicates with `7zz` through
-a managed pseudo-terminal (PTY).
-
-Passwords are not supplied through:
-
-- command-line arguments containing the password
-- environment variables
-- temporary password files
-
-The PTY has terminal echo disabled before the child process is spawned.
+For password-protected operations, Archivist uses a managed pseudo-terminal
+(PTY) with terminal echo disabled. Passwords are not passed in process
+arguments, environment variables, or temporary files.
 
 ## Bundling
 
-The `7zz` executable is bundled with the Archivist application and is expected
-to be available from the application's helper resources at runtime.
+The installed executable is located at:
 
-Archivist may also support an explicitly configured external `7zz` executable
-for development or user-selected configurations.
+`/Applications/Archivist.app/Contents/Helpers/7zz`
+
+The bundled executable reports 7-Zip version 26.02.
 
 ## Verification
 
-The bundled executable is pinned to the version documented above.
+SHA-256 of the bundled `7zz` executable:
 
-Release/build tooling should verify the expected executable and version before
-packaging.
+`ecf1725c92260f5565d3c549a835407c6be7b8baf0d0dcc3e472599f81a4897a`
 
-If a SHA-256 checksum is maintained for the downloaded upstream artifact or
-bundled executable, it should be recorded here and verified by the build
-process.
+This checksum identifies the exact `7zz` executable bundled with the
+verified Archivist development build.
 
 ## License
 
 7-Zip is third-party software and is not covered by Archivist's MIT License.
 
-The licensing information distributed with the bundled 7-Zip version is
-preserved verbatim in:
+The licensing information accompanying the bundled version is preserved in:
 
 `Vendor/SevenZip/LICENSE.txt`
 
-That notice includes the applicable GNU LGPL terms and notices concerning
-BSD-licensed components and the unRAR license restriction.
-
-Binary distributions of Archivist that contain `7zz` must also include the
+Binary distributions of Archivist containing `7zz` must reproduce the
 applicable 7-Zip licensing information.
 
 ## Updating
 
 When updating 7-Zip:
 
-1. Obtain the new release from the official upstream project.
+1. Obtain the release from the official upstream project.
 2. Verify the downloaded artifact.
-3. Update the bundled executable.
-4. Update the version recorded in this file.
-5. Update any recorded cryptographic hashes.
-6. Replace `LICENSE.txt` with the licensing information distributed with the
-   new version if it has changed.
-7. Run Archivist's backend, password-transport, security, and integration
-   tests before accepting the update.
+3. Replace the bundled executable.
+4. Update the version and SHA-256 recorded here.
+5. Update `LICENSE.txt` if the upstream licensing information changed.
+6. Run Archivist's backend, PTY/password, security, and integration tests.
